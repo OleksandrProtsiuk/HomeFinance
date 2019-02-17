@@ -26,7 +26,7 @@
     <%= form.select :status, account_status_hash, {}, { :class => 'select form-control' }%>
   </div>
 
-  <div class="field">
+  <div class="field" style="display: none;"> <!-- remove style when categories will be added -->
     <%= form.label :category_id %>
     <%= form.number_field :category_id, { :class => 'form-control', :value => 0 }%>
   </div>
