@@ -18,7 +18,7 @@
 
   <div class="field" id="cost">
     <%= form.label :value %>
-    <%= form.text_field :value, { :class => 'form-control', :value => '{{ checker }}' } %>
+    <%= form.text_field :value, { :class => 'form-control'} %>
 
     <%= form.label :status %>
     <%= form.select :status, account_status_hash, {}, { :class => 'select form-control' }%>
