@@ -14,3 +14,23 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+
+let cost = new Vue ({
+    el: '#cost',
+    data: {
+        account_value: '',
+        account_status: ''
+    },
+    computed: {
+        checker: function () {
+            var status = this.account_status;
+            var val = this.account_value;
+
+            if (status === 'costs') {
+                val = '-' + val;
+            }
+            return val
+        }
+    }
+});

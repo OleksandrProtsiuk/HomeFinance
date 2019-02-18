@@ -16,12 +16,10 @@
     <%= form.text_field :title, { :class => 'form-control' }%>
   </div>
 
-  <div class="field">
+  <div class="field" id="cost">
     <%= form.label :value %>
-    <%= form.text_field :value, { :class => 'form-control' } %>
-  </div>
+    <%= form.text_field :value, { :class => 'form-control', :value => '{{ checker }}' } %>
 
-  <div class="field">
     <%= form.label :status %>
     <%= form.select :status, account_status_hash, {}, { :class => 'select form-control' }%>
   </div>
