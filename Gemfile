@@ -6,6 +6,8 @@ ruby '2.6.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'
 gem 'rake', '~> 12.3', '>= 12.3.2'
+gem 'webpacker', '~> 3.5', '>= 3.5.5'
+gem 'foreman', '~> 0.85.0'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
