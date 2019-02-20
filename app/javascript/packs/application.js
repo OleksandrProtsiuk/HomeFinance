@@ -7,25 +7,31 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 
-import Vue from "vue";
+import Vue from "vue/dist/vue.esm.js";
 
 // console.log('Hello World from Webpacker');
 
-let cost = new Vue ({
-    el: '#cost',
+let app = new Vue ({
+    el: '#app',
     data: {
-        account_value: '',
-        account_status: ''
+        acc_value: '',
+        acc_status: ''
     },
     computed: {
-        checker: function () {
-            var status = this.account_status;
-            var val = this.account_value;
+        positive: function () {
+            let status = this.acc_status;
+            let potato = this.acc_value;
 
             if (status === 'costs') {
-                val = '-' + val;
+                potato = '-' + potato;
             }
-            return val
+            return potato
+        },
+        /* control function for checking Vue status !!Remove before production*/
+        hall: function () {
+            let a = 777;
+            return a
         }
     }
 });
+
