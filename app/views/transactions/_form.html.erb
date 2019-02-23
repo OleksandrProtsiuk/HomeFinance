@@ -1,0 +1,47 @@
+<%= form_with(model: transaction, local: true) do |form| %>
+  <% if transaction.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(transaction.errors.count, "error") %> prohibited this transaction from being saved:</h2>
+
+      <ul>
+      <% transaction.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :from_acc_id %>
+    <%= form.number_field :from_acc_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :from_acc_val %>
+    <%= form.text_field :from_acc_val %>
+  </div>
+
+  <div class="field">
+    <%= form.label :to_acc_id %>
+    <%= form.number_field :to_acc_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :to_acc_val %>
+    <%= form.text_field :to_acc_val %>
+  </div>
+
+  <div class="field">
+    <%= form.label :value %>
+    <%= form.text_field :value %>
+  </div>
+
+  <div class="field">
+    <%= form.label :comment %>
+    <%= form.text_area :comment %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

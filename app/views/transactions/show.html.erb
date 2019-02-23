@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>From acc:</strong>
+  <%= @transaction.from_acc_id %>
+</p>
+
+<p>
+  <strong>From acc val:</strong>
+  <%= @transaction.from_acc_val %>
+</p>
+
+<p>
+  <strong>To acc:</strong>
+  <%= @transaction.to_acc_id %>
+</p>
+
+<p>
+  <strong>To acc val:</strong>
+  <%= @transaction.to_acc_val %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @transaction.value %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @transaction.comment %>
+</p>
+
+<%= link_to 'Edit', edit_transaction_path(@transaction) %> |
+<%= link_to 'Back', transactions_path %>
