@@ -24,10 +24,13 @@ class TransactionsController < ApplicationController
   # POST /transactions
   # POST /transactions.json
   def create
+    id_from = transaction_params[:from_acc_id]
+    id_to = transaction_params[:to_acc_id]
     @transaction = Transaction.new(transaction_params)
 
     respond_to do |format|
       if @transaction.save
+        transaction(id_from, id_to)
         format.html { redirect_to @transaction, notice: 'Transaction was successfully created.' }
         format.json { render :show, status: :created, location: @transaction }
       else
@@ -71,4 +74,16 @@ class TransactionsController < ApplicationController
     def transaction_params
       params.require(:transaction).permit(:from_acc_id, :from_acc_val, :to_acc_id, :to_acc_val, :value, :comment)
     end
+
+    def transaction(id_from, id_to)
+      acc_from = Account.find_by_id(id_from)
+      acc_to = Account.find_by_id(id_to)
+      delta = Transaction.last.value
+      Transaction.update(Transaction.last.id, 'from_acc_val': acc_from.value, 'to_acc_val': acc_to.value)
+
+      Account.update(id_from, 'value': acc_from.value - delta)
+      acc_to.status == 'costs' ? delta = -delta : delta
+      Account.update(id_to, 'value': acc_to.value + delta)
+    end
+
 end

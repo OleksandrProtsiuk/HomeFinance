@@ -15,7 +15,9 @@ let app = new Vue ({
     el: '#app',
     data: {
         acc_value: '',
-        acc_status: ''
+        acc_status: '',
+
+        from_acc_id: ''
     },
     computed: {
         positive: function () {
@@ -29,8 +31,7 @@ let app = new Vue ({
         },
         /* control function for checking Vue status !!Remove before production*/
         hall: function () {
-            let a = 777;
-            return a
+            return 777
         }
     }
 });

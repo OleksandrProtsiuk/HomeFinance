@@ -12,8 +12,4 @@ module ApplicationHelper
     hash
   end
 
-  def old_acc_val(id)
-    Account.find_by_id(id).value
-  end
-
 end
