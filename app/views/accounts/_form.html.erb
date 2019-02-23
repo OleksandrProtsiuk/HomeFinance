@@ -16,12 +16,16 @@
     <%= form.text_field :title, { :class => 'form-control' }%>
   </div>
 
-  <div class="field" id="cost">
+  <div class="field">
     <%= form.label :value %>
-    <%= form.text_field :value, { :class => 'form-control'} %>
+    <span><%= account.value %></span>
+    <input type="text" class="form-control" v-model="acc_value">
+    <input type="hidden" name="account[value]" id="account_value" v-bind:value="positive">
+  </div>
 
+  <div class="field">
     <%= form.label :status %>
-    <%= form.select :status, account_status_hash, {}, { :class => 'select form-control' }%>
+    <%= form.select :status, account_status_hash, {}, { 'class':'form-control', 'v-model': 'acc_status' }%>
   </div>
 
   <div class="field" style="display: none;"> <!-- remove style when categories will be added -->

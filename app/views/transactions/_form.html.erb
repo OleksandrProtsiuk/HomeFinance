@@ -1,0 +1,38 @@
+<%= form_with(model: transaction, local: true) do |form| %>
+  <% if transaction.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(transaction.errors.count, "error") %> prohibited this transaction from being saved:</h2>
+
+      <ul>
+      <% transaction.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :from_acc_id %>
+    <%= form.select :from_acc_id, account_names_and_ids, {}, { 'class':'form-control', 'v-model': 'from_acc_id' } %>
+  </div>
+  {{ from_acc_id }}
+
+  <div class="field">
+    <%= form.label :to_acc_id %>
+    <%= form.select :to_acc_id, account_names_and_ids, {}, { 'class':'form-control' } %>
+  </div>
+
+  <div class="field">
+    <%= form.label :value %>
+    <%= form.text_field :value, { :class => 'form-control' } %>
+  </div>
+
+  <div class="field">
+    <%= form.label :comment %>
+    <%= form.text_area :comment, { :class => 'form-control' } %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit({ :class => 'btn btn-warning'}) %>
+  </div>
+<% end %>
