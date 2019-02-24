@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'static_pages/index'
+  get 'static_pages/home'
+  get 'static_pages/about'
   resources :transactions
   root 'accounts#index', as: 'root'
   resources :accounts
