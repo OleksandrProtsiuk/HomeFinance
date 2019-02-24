@@ -16,8 +16,6 @@ let app = new Vue ({
     data: {
         acc_value: '',
         acc_status: '',
-
-        from_acc_id: ''
     },
     computed: {
         positive: function () {
