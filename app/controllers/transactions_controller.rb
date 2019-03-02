@@ -72,18 +72,7 @@ class TransactionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def transaction_params
-      params.require(:transaction).permit(:from_acc_id, :from_acc_val, :to_acc_id, :to_acc_val, :value, :comment)
+      params.require(:transaction).permit(:account_id, :destination_account_id,
+                                          :amount, :destination_account_amount, :comment, :category_id)
     end
-
-    def transaction(id_from, id_to)
-      acc_from = Account.find_by_id(id_from)
-      acc_to = Account.find_by_id(id_to)
-      delta = Transaction.last.value
-      Transaction.update(Transaction.last.id, 'from_acc_val': acc_from.value, 'to_acc_val': acc_to.value)
-
-      Account.update(id_from, 'value': acc_from.value - delta)
-      acc_to.status == 'costs' ? delta = -delta : delta
-      Account.update(id_to, 'value': acc_to.value + delta)
-    end
-
 end

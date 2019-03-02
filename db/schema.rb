@@ -17,20 +17,19 @@ ActiveRecord::Schema.define(version: 2019_02_23_152829) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "title"
-    t.decimal "value"
-    t.string "status"
-    t.integer "category_id"
+    t.integer "currency"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "transactions", force: :cascade do |t|
-    t.integer "from_acc_id"
-    t.decimal "from_acc_val"
-    t.integer "to_acc_id"
-    t.decimal "to_acc_val"
-    t.decimal "value"
+    t.integer "account_id"
+    t.integer "destination_account_id"
+    t.decimal "amount"
+    t.decimal "destination_account_amount"
     t.text "comment"
+    t.integer "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
