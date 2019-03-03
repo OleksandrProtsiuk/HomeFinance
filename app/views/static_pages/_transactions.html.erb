@@ -1,0 +1,4 @@
+
+<% @transactions.reverse_each do |transaction| %>
+  <small><%= transaction.updated_at %> | <%= transaction.comment %></small><br>
+<% end %>

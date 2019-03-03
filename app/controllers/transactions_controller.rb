@@ -24,8 +24,6 @@ class TransactionsController < ApplicationController
   # POST /transactions
   # POST /transactions.json
   def create
-    id_from = transaction_params[:from_acc_id]
-    id_to = transaction_params[:to_acc_id]
     @transaction = Transaction.new(transaction_params)
 
     respond_to do |format|

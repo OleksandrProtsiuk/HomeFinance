@@ -3,6 +3,8 @@ class StaticPagesController < ApplicationController
   end
 
   def home
+    @accounts = Account.all
+    @transactions = Transaction.all
   end
 
   def about

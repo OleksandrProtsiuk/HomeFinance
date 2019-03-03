@@ -10,6 +10,24 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
  */
+
+.card-header {
+    background: lightgreen;
+}
+
+.card {
+    border: solid;
+    border-radius: 10px;
+    border-color: lightgreen;
+
+    width: 15rem;
+}
+
+.details {
+    border: solid;
+    border-radius: 10px;
+}
+
+
+
