@@ -30,7 +30,6 @@ class TransactionsController < ApplicationController
 
     respond_to do |format|
       if @transaction.save
-        transaction(id_from, id_to)
         format.html { redirect_to @transaction, notice: 'Transaction was successfully created.' }
         format.json { render :show, status: :created, location: @transaction }
       else

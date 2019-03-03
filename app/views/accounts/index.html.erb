@@ -6,9 +6,8 @@
   <thead>
     <tr>
       <th>Title</th>
-      <th>Value</th>
-      <th>Status</th>
-      <th>Category</th>
+      <th>Currency</th>
+      <th>User_Id</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,9 +16,8 @@
     <% @accounts.each do |account| %>
       <tr>
         <td><%= account.title %></td>
-        <td><%= account.value %></td>
-        <td><%= account.status %></td>
-        <td><%= account.category_id %></td>
+        <td><%= account.currency %></td>
+        <td><%= account.user_id %></td>
         <td><%= link_to 'Show', account %></td>
         <td><%= link_to 'Edit', edit_account_path(account) %></td>
         <td><%= link_to 'Destroy', account, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -31,10 +29,3 @@
 <br>
 
 <%= link_to 'New Account', new_account_path %>
-
-<h3>Total: <%= @total %></h3>
-<hr>
-<%= link_to 'transactions', transactions_url %>
-<div id="hell">
-  {{ hall }}
-</div>

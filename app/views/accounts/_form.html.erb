@@ -20,7 +20,7 @@
 
   <div class="field">
     <%= form.label :currency %>
-    <%= form.number_field :currency, { 'class':'form-control', 'v-model': 'acc_status' }%>
+    <%= form.select :currency, Account.currencies.keys, {}, { :class => 'form-control' }%>
   </div>
 
   <div class="field">
