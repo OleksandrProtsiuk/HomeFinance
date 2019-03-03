@@ -1,0 +1,14 @@
+
+<div class="row">
+  <% @accounts.each do |account| %>
+    <div class="col-4">
+      <div class="card">
+          <h5 class="card-header"><%= account.title %></h5>
+        <div class="card-body">
+          <h5 class="card-title"> <%= current_amount(account.id) %> <%= account.currency %></h5>
+        </div>
+      </div>
+      <br>
+    </div>
+  <% end %>
+</div>

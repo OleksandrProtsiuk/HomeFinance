@@ -28,6 +28,7 @@ class AccountsController < ApplicationController
 
     respond_to do |format|
       if @account.save
+        init_transaction(Account.last.id, Account.last.title)
         format.html { redirect_to @account, notice: 'Account was successfully created.' }
         format.json { render :show, status: :created, location: @account }
       else
@@ -70,5 +71,11 @@ class AccountsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def account_params
       params.require(:account).permit(:title, :currency, :user_id)
+    end
+
+    def init_transaction(id, title)
+      transaction = Transaction.new('account_id': id, 'amount': '0',
+                      'comment': "Счёт #{title} создан")
+      transaction.save
     end
 end
