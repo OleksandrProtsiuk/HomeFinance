@@ -5,11 +5,6 @@ class AccountsController < ApplicationController
   # GET /accounts.json
   def index
     @accounts = Account.all
-    @total = 0
-
-    @accounts.each do |account| # total-counter
-      @total += account.value
-    end
   end
 
   # GET /accounts/1
