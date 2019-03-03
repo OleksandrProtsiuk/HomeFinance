@@ -1,4 +1,6 @@
+
 <%= form_with(model: account, local: true) do |form| %>
+
   <% if account.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(account.errors.count, "error") %> prohibited this account from being saved:</h2>
@@ -17,20 +19,13 @@
   </div>
 
   <div class="field">
-    <%= form.label :value %>
-    <span><%= account.value %></span>
-    <input type="text" class="form-control" v-model="acc_value">
-    <input type="hidden" name="account[value]" id="account_value" v-bind:value="positive">
+    <%= form.label :currency %>
+    <%= form.number_field :currency, { 'class':'form-control', 'v-model': 'acc_status' }%>
   </div>
 
   <div class="field">
-    <%= form.label :status %>
-    <%= form.select :status, account_status_hash, {}, { 'class':'form-control', 'v-model': 'acc_status' }%>
-  </div>
-
-  <div class="field" style="display: none;"> <!-- remove style when categories will be added -->
-    <%= form.label :category_id %>
-    <%= form.number_field :category_id, { :class => 'form-control', :value => 0 }%>
+    <%= form.label :user_id %>
+    <%= form.number_field :user_id, { :class => 'form-control' }%>
   </div>
 
   <div class="actions">
