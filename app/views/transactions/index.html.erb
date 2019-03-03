@@ -5,12 +5,12 @@
 <table class="table">
   <thead>
     <tr>
-      <th>From acc</th>
-      <th>From acc val</th>
-      <th>To acc</th>
-      <th>To acc val</th>
-      <th>Value</th>
+      <th>Account_id</th>
+      <th>Destination_account_id</th>
+      <th>Amount</th>
+      <th>Destination_account_amount</th>
       <th>Comment</th>
+      <th>Category_id</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,12 +18,12 @@
   <tbody>
     <% @transactions.each do |transaction| %>
       <tr>
-        <td><%= transaction.from_acc_id %></td>
-        <td><%= transaction.from_acc_val %></td>
-        <td><%= transaction.to_acc_id %></td>
-        <td><%= transaction.to_acc_val %></td>
-        <td><%= transaction.value %></td>
+        <td><%= transaction.account_id %></td>
+        <td><%= transaction.destination_account_id %></td>
+        <td><%= transaction.amount %></td>
+        <td><%= transaction.destination_account_amount %></td>
         <td><%= transaction.comment %></td>
+        <td><%= transaction.category_id %></td>
         <td><%= link_to 'Show', transaction %></td>
         <td><%= link_to 'Edit', edit_transaction_path(transaction) %></td>
         <td><%= link_to 'Destroy', transaction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
