@@ -1,0 +1,28 @@
+<div id="expanse-transaction">
+  <h4>Expanse </h4>
+  <form @submit.prevent="submitExpanseForm">
+    <div>
+      <label for="account_id">Select Account</label><br>
+      <select v-model="account_id" required class="form-control">
+        <% account_names_and_ids.each do |element|  %>
+          <option value="<%= element[1] %>"><%= element[0] %></option>
+        <% end %>
+      </select>
+    </div>
+    <div>
+      <input id="destination_account_id" type="text" v-model="destination_account_id" hidden />
+      <input id="destination_account_amount" type="text" v-model="destination_account_amount" hidden />
+      <input id="category_id" type="text" v-model="category_id" hidden />
+    </div>
+    <div>
+      <label for="amount">Input Amount</label><br>
+      <input id="amount" type="text" v-model="amount" required class="form-control"/>
+    </div>
+    <div>
+      <label for="comment">comment</label><br>
+      <input id="comment" type="text" v-model="comment" required class="form-control"/>
+    </div>
+    <br>
+    <button :class="[account_id ? activeClass : '']" type="submit" class="btn btn-warning" onclick=<%=  %>>Add Transaction</button>
+  </form>
+</div>

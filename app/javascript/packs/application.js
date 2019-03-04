@@ -9,6 +9,7 @@
 
 import Vue from "vue/dist/vue.esm.js";
 
+/*
 let app = new Vue ({
     el: '#app',
     data: {
@@ -24,11 +25,6 @@ let app = new Vue ({
                 potato = '-' + potato;
             }
             return potato
-        },
-        /* control function for checking Vue status !!Remove before production*/
-        hall: function () {
-            return 777
         }
     }
-});
-
+}); */

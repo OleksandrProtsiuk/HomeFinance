@@ -2,17 +2,45 @@
 <div class="row">
   <div class="col-9">
       <%= render 'account_card' %>
+
+    <!--- %= render 'transaction_income_form' %-->
+
+    <div class="row">
+      <div class="col-4">
+        <div class="card-forms">
+          <div class="card-body">
+            <%= render 'income_form' %>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-4">
+        <div class="card-forms">
+          <div class="card-body">
+            <%= render 'expanse_form' %>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-4">
+        <div class="card-forms">
+          <div class="card-body">
+            <%= render 'transfer_form' %>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <div class="col-3 details">
-
-
 
     <hr>
     <h5>Transactions:</h5>
       <%= render 'transactions' %>
 
+
   </div>
 </div>
 
-
+<%= javascript_pack_tag 'home' %>
