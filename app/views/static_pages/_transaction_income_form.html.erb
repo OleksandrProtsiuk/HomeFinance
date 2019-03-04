@@ -1,0 +1,75 @@
+<!-- template for the modal component -->
+<script type="text/x-template" id="modal-template">
+  <transition name="modal">
+    <div class="modal-mask">
+      <div class="modal-wrapper">
+        <div class="modal-container" role="dialog">
+
+          <div class="modal-header">
+            <slot name="header">
+              super default !
+            </slot>
+          </div>
+
+          <div class="modal-body">
+            <slot name="body">
+              not default body =)
+            </slot>
+          </div>
+
+          <div class="modal-footer">
+            <slot name="footer">
+              <button class="modal-default-button" @click="$emit('close')">
+                Close
+              </button>
+            </slot>
+          </div>
+        </div>
+      </div>
+    </div>
+  </transition>
+</script>
+
+<!-- app -->
+<div id="app1">
+  <button id="show-modal" @click="showModal = true" class="btn btn-link">Income</button>
+  <!-- use the modal component, pass in the prop -->
+  <modal v-if="showModal" @close="showModal = false">
+    <!--
+      you can use custom content here to overwrite
+      default content
+    -->
+    <h3 slot="header">New Income Transaction</h3>
+
+    <div slot="body">
+    <div id="transaction">
+      <form @submit.prevent="submitForm">
+        <div>
+          <label for="account_id">Select Account</label><br>
+          <select v-model="account_id" required class="form-control">
+            <% account_names_and_ids.each do |element|  %>
+              <option value="<%= element[1] %>"><%= element[0] %></option>
+            <% end %>
+          </select>
+        </div>
+        <div>
+          <input id="destination_account_id" type="text" v-model="destination_account_id" hidden />
+          <input id="destination_account_amount" type="text" v-model="destination_account_amount" hidden />
+          <input id="category_id" type="text" v-model="category_id" hidden />
+        </div>
+        <div>
+          <label for="amount">Input Amount</label><br>
+          <input id="amount" type="text" v-model="amount" required class="form-control"/>
+        </div>
+        <div>
+          <label for="comment">comment</label><br>
+          <input id="comment" type="text" v-model="comment" required class="form-control"/>
+        </div>
+        <br>
+          <button :class="[account_id ? activeClass : '']" type="submit" class="btn btn-warning">Add Transaction</button>
+      </form>
+    </div>
+    </div>
+
+  </modal>
+</div>
