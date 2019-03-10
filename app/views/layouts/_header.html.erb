@@ -1,11 +1,40 @@
 <div class="container">
-  <hr>
-  <%= link_to 'index', static_pages_index_url %>
-  <%= link_to 'home', static_pages_home_url %>
-  <%= link_to 'about', static_pages_about_url %>
+  <nav>
+    <menu>
+      <menuitem id="demo1">
+        <a>New</a>
+        <menu>
+          <menuitem><a>Account</a></menuitem>
+          <menuitem>
+            <a>Transaction</a>
+            <menu>
+              <menuitem>
+                <!-- Button trigger modal -->
+                <a data-toggle="modal" data-target="#incomeModal">Income</a>
+              </menuitem>
+              <menuitem>
+                <!-- Button trigger modal -->
+                <a data-toggle="modal" data-target="#expanseModal">Expanse</a>
+              </menuitem>
+              <menuitem>
+                <!-- Button trigger modal -->
+                <a data-toggle="modal" data-target="#transferModal">Transfer</a>
+              </menuitem>
+            </menu>
+          </menuitem>
 
-  <%= link_to 'accounts', accounts_url %>
-  <%= link_to 'transactions', transactions_url %>
-  <%= link_to 'categories', categories_url %>
-  <hr>
+
+        </menu>
+      </menuitem>
+      <menuitem><%= link_to 'Home', static_pages_home_url %></menuitem>
+      <menuitem><%= link_to 'About', static_pages_about_url %></menuitem>
+      <%= link_to 'index', static_pages_index_url %>
+      <%= link_to 'accounts', accounts_url %>
+      <%= link_to 'transactions', transactions_url %>
+      <%= link_to 'categories', categories_url %>
+    </menu>
+    <br>
+    <hr>
+    <br>
+  </nav>
 </div>

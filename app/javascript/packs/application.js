@@ -8,23 +8,3 @@
 // layout file, like app/views/layouts/application.html.erb
 
 import Vue from "vue/dist/vue.esm.js";
-
-/*
-let app = new Vue ({
-    el: '#app',
-    data: {
-        acc_value: '',
-        acc_status: '',
-    },
-    computed: {
-        positive: function () {
-            let status = this.acc_status;
-            let potato = this.acc_value;
-
-            if (status === 'costs') {
-                potato = '-' + potato;
-            }
-            return potato
-        }
-    }
-}); */
