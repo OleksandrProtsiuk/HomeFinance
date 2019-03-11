@@ -166,3 +166,49 @@ new Vue({
 
     }
 });
+
+new Vue({
+    el: '#new-account',
+    data() {
+        return {
+            title: '',
+            currency: '',
+            color: '',
+            user_id: '',
+            errors: [],
+            notice: [],
+            response: '',
+            activeClass: 'active'
+        }
+    },
+    methods: {
+        submitNewAccountForm() {
+            let new_account_url = '/accounts.json';
+
+            if(this.title && this.title.length <= 18 && this.title !== ' ') {
+                axios.post( new_account_url, {
+                    title: this.title,
+                    currency: this.currency,
+                    color: this.color,
+                    user_id: this.user_id,
+                }).then(response => {
+                    this.response = JSON.stringify(response, null, 2)
+                });
+                this.title = null;
+                this.currency = null;
+                this.color = null;
+                this.errors = [];
+                this.notice = [];
+                this.notice.push('Data added');
+            }
+            else {
+                this.errors = [];
+                if (!this.title) this.errors.push('Input title of the new account');
+                if (this.title === ' ') this.errors.push('Input valid title of new account');
+                if (this.title.length > 18) this.errors.push('Tille is to long. Max len-18 letters.' +
+                    'Your len-' + this.title.length);
+            }
+        },
+
+    }
+});
