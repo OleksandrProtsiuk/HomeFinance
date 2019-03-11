@@ -25,10 +25,23 @@
               </menuitem>
             </menu>
           </menuitem>
-
-
         </menu>
       </menuitem>
+
+      <menuitem>
+        <a>Categories</a>
+        <menu>
+          <menuitem>
+            <!-- Button trigger modal -->
+            <a data-toggle="modal" data-target="#categoryModal">New</a>
+          </menuitem>
+          <menuitem>
+            <!-- Button trigger modal -->
+            <a data-toggle="modal" data-target="#view-categoryModal">View</a>
+          </menuitem>
+        </menu>
+      </menuitem>
+
       <menuitem><%= link_to 'Home', static_pages_home_url %></menuitem>
       <menuitem><%= link_to 'About', static_pages_about_url %></menuitem>
 

@@ -1,0 +1,49 @@
+
+<!-- Modal -->
+<div class="modal fade" id="categoryModal" tabindex="-1" role="dialog" aria-labelledby="categoryModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New category</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+
+        <div id="new-category">
+
+          <form @submit.prevent="submitNewCategoryForm">
+            <!-- errors here -->
+            <div v-if="errors.length" class="alert alert-danger">
+              <b>Please correct the following error(s):</b>
+              <ul>
+                <li v-for="error in errors">{{ error }}</li>
+              </ul>
+            </div>
+            <!-- notices here -->
+            <div v-if="notice.length">
+              <pre v-for="notice in notice" class="alert alert-success"> {{ notice }} </pre>
+            </div>
+            <!-- fields go -->
+            <div>
+              <label for="title">Title</label><br>
+              <input id="title" type="text" v-model="title" class="form-control"/>
+            </div>
+            <div>
+              <label for="about">About</label><br>
+              <input id="about" type="text" v-model="about" class="form-control"/>
+            </div>
+            <div>
+              <input id="user_id" type="text" v-model="user_id" hidden />
+            </div>
+            <br>
+            <button :class="[title ? activeClass : '']" type="submit" class="btn btn-warning">Add Category</button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

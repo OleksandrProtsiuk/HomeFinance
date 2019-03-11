@@ -212,3 +212,65 @@ new Vue({
 
     }
 });
+
+
+new Vue({
+    el: '#new-category',
+    data() {
+        return {
+            title: '',
+            about: '',
+            user_id: '',
+            errors: [],
+            notice: [],
+            response: '',
+            activeClass: 'active'
+        }
+    },
+    methods: {
+        submitNewCategoryForm() {
+            let new_account_url = '/categories.json';
+
+            if(this.title) {
+                axios.post( new_account_url, {
+                    title: this.title,
+                    about: this.about,
+                    user_id: this.user_id,
+                }).then(response => {
+                    this.response = JSON.stringify(response, null, 2)
+                });
+                this.title = null;
+                this.about = null;
+                this.errors = [];
+                this.notice = [];
+                this.notice.push('Data added');
+            }
+            else {
+                this.errors = [];
+                if (!this.title) this.errors.push('Title required');
+            }
+        },
+
+    }
+});
+
+new Vue({
+    el: '#view-category',
+    data() {
+        return {
+            categories: null
+        }
+    },
+    methods: {
+        updateCategoryList() {
+            let new_account_url = '/categories.json';
+
+                axios.get( new_account_url).then(response => {
+                    this.categories = JSON.stringify(response, null, 2)
+                });
+                return this.categories;
+
+        },
+
+    }
+});

@@ -5,6 +5,7 @@ class StaticPagesController < ApplicationController
   def home
     @accounts = Account.all
     @transactions = Transaction.all
+    @categories = Category.all
   end
 
   def about
