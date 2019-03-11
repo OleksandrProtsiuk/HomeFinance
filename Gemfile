@@ -8,6 +8,12 @@ gem 'rails', '~> 5.2.2'
 gem 'rake', '~> 12.3', '>= 12.3.2'
 gem 'webpacker', '~> 3.5', '>= 3.5.5'
 gem 'foreman', '~> 0.85.0'
+
+gem 'capistrano', '~> 3.11'
+gem 'capistrano-rails', '~> 1.4'
+gem 'capistrano-passenger', '~> 0.2.0'
+gem 'capistrano-rbenv', '~> 2.1', '>= 2.1.4'
+
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
