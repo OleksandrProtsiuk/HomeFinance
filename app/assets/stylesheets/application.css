@@ -12,6 +12,14 @@
  *
  */
 
+.footer {
+    position: relative;
+    background-color: lightgreen;
+    text-align: center;
+    height: 70px;
+    border-radius: 5px;
+}
+
 .card-header {
     background: lightgrey;
 }
