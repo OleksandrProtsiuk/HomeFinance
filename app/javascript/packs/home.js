@@ -274,3 +274,24 @@ new Vue({
 
     }
 });
+/*
+new Vue({
+    el: '#8',
+    data() {
+        return {
+            amount: null
+        }
+    },
+    methods: {
+        updateSum() {
+            let current_amount_url = '/categories.json';
+
+            axios.get( current_amount_url).then(response => {
+                this.amount = JSON.stringify(response, null, 2)
+            });
+            return this.amount;
+
+        },
+
+    }
+}) */
