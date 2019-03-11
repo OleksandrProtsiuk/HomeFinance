@@ -13,14 +13,13 @@
  */
 
 .card-header {
-    background: lightgreen;
+    background: lightgrey;
 }
 
 .card {
     border: solid;
     border-radius: 10px;
-    border-color: lightgreen;
-
+    border-color: lightgrey;
     width: 15rem;
 }
 

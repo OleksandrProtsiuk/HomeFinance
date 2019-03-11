@@ -2,8 +2,10 @@
 <div class="row">
   <% @accounts.each do |account| %>
     <div class="col-4">
-      <div class="card">
-          <h5 class="card-header"><%= account.title %></h5>
+      <div class="card" style="border-color: <%=  account.color ? "#{account.color}" : '' %>;" >
+          <h5 class="card-header" style="background: <%=  account.color ? "#{account.color}" : '' %>;" >
+                <%= account.title %>
+          </h5>
         <div class="card-body">
           <h5 class="card-title"> <%= current_amount(account.id) %> <%= account.currency %></h5>
         </div>
