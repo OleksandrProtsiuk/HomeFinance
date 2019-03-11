@@ -1,10 +1,10 @@
 
 <!-- Modal -->
-<div class="modal fade" id="accountModal" tabindex="-1" role="dialog" aria-labelledby="accountModalLabel" aria-hidden="true">
+<div class="modal fade" id="categoryModal" tabindex="-1" role="dialog" aria-labelledby="categoryModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">New account</h5>
+        <h5 class="modal-title" id="exampleModalLabel">New category</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -12,9 +12,9 @@
       <div class="modal-body">
 
 
-        <div id="new-account">
+        <div id="new-category">
 
-          <form @submit.prevent="submitNewAccountForm">
+          <form @submit.prevent="submitNewCategoryForm">
             <!-- errors here -->
             <div v-if="errors.length" class="alert alert-danger">
               <b>Please correct the following error(s):</b>
@@ -32,26 +32,14 @@
               <input id="title" type="text" v-model="title" class="form-control"/>
             </div>
             <div>
-              <label for="currency">Select currency</label><br>
-              <select v-model="currency" class="form-control">
-                <% Account.currencies.keys.each do |element|  %>
-                  <option value="<%= element %>"><%= element %></option>
-                <% end %>
-              </select>
-            </div>
-            <div>
-              <label for="color">Select color</label><br>
-              <select v-model="color" class="form-control">
-                <% Account.colors.keys.each do |element|  %>
-                  <option value="<%= element %>"><%= element %></option>
-                <% end %>
-              </select>
+              <label for="about">About</label><br>
+              <input id="about" type="text" v-model="about" class="form-control"/>
             </div>
             <div>
               <input id="user_id" type="text" v-model="user_id" hidden />
             </div>
             <br>
-            <button :class="[title ? activeClass : '']" type="submit" class="btn btn-warning">Add Account</button>
+            <button :class="[title ? activeClass : '']" type="submit" class="btn btn-warning">Add Category</button>
           </form>
         </div>
 
