@@ -1,6 +1,6 @@
 class Account < ApplicationRecord
 
-  enum currency: { 'UAH': 980, 'USD': 840, 'EUR': 978, 'RUB': 643 },
+  enum currency: [:UAH, :USD, :EUR, :RUR],
        color: { 'Red': 'lightcoral', 'Blue': 'lightskyblue', 'Green': 'lightgreen',
                 'Yellow': 'yellow', 'Pink': 'lightpink', 'Orange': 'orange',
                 'Grey': 'lightgrey' }
