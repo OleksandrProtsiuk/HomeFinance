@@ -1,8 +1,8 @@
 
 # Change these
-server 'your_server_ip', port: your_port_num, roles: [:web, :app, :db], primary: true
+server '68.183.69.25', roles: [:web, :app, :db], primary: true
 
-set :repo_url,        'git@github.com:uOleksandrProtsiuk/HomeFinance.git'
+set :repo_url,        'git@github.com:OleksandrProtsiuk/HomeFinance.git'
 set :application,     'HomeFinance'
 set :user,            'deploy'
 set :puma_threads,    [4, 16]
