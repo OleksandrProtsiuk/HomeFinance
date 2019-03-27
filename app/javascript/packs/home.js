@@ -1,4 +1,5 @@
 import Vue from "vue/dist/vue.esm.js";
+import axios from "axios";
 
 new Vue({
     el: '#income-transaction',
@@ -274,24 +275,24 @@ new Vue({
 
     }
 });
-/*
+
 new Vue({
-    el: '#8',
+    el: '#test',
     data() {
         return {
-            amount: null
+            account: null
         }
     },
     methods: {
-        updateSum() {
-            let current_amount_url = '/categories.json';
-
-            axios.get( current_amount_url).then(response => {
-                this.amount = JSON.stringify(response, null, 2)
+        accounts: function() {
+            axios.get( '/accounts.json').then(response => {
+                this.account = JSON.stringify(response, null, 2)
             });
-            return this.amount;
-
+            return this.account;
         },
-
+        mounted() {
+            delay(5);
+            this.accounts()
+        }
     }
-}) */
+});

@@ -3,6 +3,9 @@
   <div class="col-9">
       <%= current_currency %>
       <%= current_currency[:EUR] %>
+     <div id="test">
+       {{ accounts() }}
+     </div>
       <%= render 'account_card' %>
 
       <%= render 'transaction_income_form' %>
