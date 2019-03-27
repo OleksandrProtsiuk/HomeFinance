@@ -3,10 +3,30 @@
   <div class="col-9">
       <%= current_currency %>
       <%= current_currency[:EUR] %>
-     <div id="test">
-       {{ accounts() }}
-     </div>
+    <div id="test">
+      {{ accounts()[0] }}
+
+      <div class="row">
+        <div class="col-4">
+          <div class="card" :style="{'border-color': accounts()[0].color}" >
+            <h5 class="card-header" :style="{background: accounts()[0].color}" >
+              {{ accounts()[0].title }}
+              <span style="float: right">
+                <a :href="edit_link(accounts()[0].id)"><%= image_tag('edit.png') %></a>
+                  </span>
+            </h5>
+            <div class="card-body">
+              <h5 class="card-title" :id="accounts()[0].id"> {{ current_amount(accounts()[0].id) }} {{ accounts()[0].currency }}</h5>
+            </div>
+          </div>
+          <br>
+        </div>
+      </div>
+
       <%= render 'account_card' %>
+    </div>
+
+
 
       <%= render 'transaction_income_form' %>
       <%= render 'transaction_expanse_form' %>

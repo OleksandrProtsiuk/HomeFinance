@@ -278,21 +278,36 @@ new Vue({
 
 new Vue({
     el: '#test',
-    data() {
-        return {
-            account: null
-        }
+    data: {
+        account: null,
+        transactions: null
     },
     methods: {
         accounts: function() {
-            axios.get( '/accounts.json').then(response => {
-                this.account = JSON.stringify(response, null, 2)
-            });
+            if (this.account === null ) {
+                axios.get( '/accounts.json').then(response => {
+                    this.account = response.data;
+                });
+            }
             return this.account;
         },
-        mounted() {
-            delay(5);
-            this.accounts()
+        edit_link: function(id) {
+            return '/accounts/' + id + '/edit'
+        },
+        current_amount: function (id) {
+            let value = 0.0;
+            if (this.transactions === null) {
+                axios.get( '/transactions.json').then(response => {
+                    this.transactions = response.data
+                });
+            }
+
+            this.transactions.forEach(function (element) {
+                if (parseInt(element.account_id) === parseInt(id)) {
+                    value += parseFloat(element.amount);
+                }
+            });
+            return value;
         }
     }
 });
