@@ -5,6 +5,9 @@
       <div class="card" style="border-color: <%=  account.color ? "#{account.color}" : '' %>;" >
           <h5 class="card-header" style="background: <%=  account.color ? "#{account.color}" : '' %>;" >
                 <%= account.title %>
+                <span style="float: right">
+                <%= link_to image_tag('edit.png'), edit_account_path(account) %>
+                  </span>
           </h5>
         <div class="card-body">
           <h5 class="card-title" id="<%= account.id %>"> <%= current_amount(account.id) %> <%= account.currency %></h5>

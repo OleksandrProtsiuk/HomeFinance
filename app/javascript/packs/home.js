@@ -1,4 +1,5 @@
 import Vue from "vue/dist/vue.esm.js";
+import axios from "axios";
 
 new Vue({
     el: '#income-transaction',
@@ -274,24 +275,39 @@ new Vue({
 
     }
 });
-/*
+
 new Vue({
-    el: '#8',
-    data() {
-        return {
-            amount: null
-        }
+    el: '#test',
+    data: {
+        account: null,
+        transactions: null
     },
     methods: {
-        updateSum() {
-            let current_amount_url = '/categories.json';
-
-            axios.get( current_amount_url).then(response => {
-                this.amount = JSON.stringify(response, null, 2)
-            });
-            return this.amount;
-
+        accounts: function() {
+            if (this.account === null ) {
+                axios.get( '/accounts.json').then(response => {
+                    this.account = response.data;
+                });
+            }
+            return this.account;
         },
+        edit_link: function(id) {
+            return '/accounts/' + id + '/edit'
+        },
+        current_amount: function (id) {
+            let value = 0.0;
+            if (this.transactions === null) {
+                axios.get( '/transactions.json').then(response => {
+                    this.transactions = response.data
+                });
+            }
 
+            this.transactions.forEach(function (element) {
+                if (parseInt(element.account_id) === parseInt(id)) {
+                    value += parseFloat(element.amount);
+                }
+            });
+            return value;
+        }
     }
-}) */
+});
