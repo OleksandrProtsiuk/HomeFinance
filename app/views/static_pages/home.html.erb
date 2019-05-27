@@ -37,8 +37,15 @@
 
   </div>
 
-  <div class="col-3 details">
-
+  <div class="col-3 details" id="totales">
+    <br>
+    <hr>
+    <div align="center">
+      <br>
+      <donut-chart :initial-values="values"></donut-chart>
+      <br>
+      <h5>Total</h5>
+    </div>
     <hr>
     <h5>Transactions:</h5>
       <%= render 'transactions' %>
@@ -46,5 +53,15 @@
 
   </div>
 </div>
+
+<script type="text/x-template" id="donutTemplate">
+  <svg height="160" width="160" viewBox="0 0 160 160" class="donut-chart">
+    <g v-for="(value, index) in sortedValues">
+      <circle :cx="cx" :cy="cy" :r="radius" :stroke="colors[index]" :stroke-width="strokeWidth" :stroke-dasharray="adjustedCircumference" :stroke-dashoffset="calculateStrokeDashOffset(value, circumference)" fill="transparent" :transform="returnCircleTransformValue(index)" />
+
+      <text v-if="segmentBigEnough(value)" text-anchor="middle" dy="3px" :x="chartData[index].textX" :y="chartData[index].textY">{{ percentageString(value) }}</text>
+    </g>
+  </svg>
+</script>
 
 <%= javascript_pack_tag 'home' %>
